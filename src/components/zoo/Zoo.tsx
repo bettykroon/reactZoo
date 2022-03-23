@@ -29,10 +29,10 @@ export function Zoo(){
             let hoursBetweenFood = ((rightNow - hoursSinceFood) / (1000 * 60 * 60));
 
             if(hoursBetweenFood > 4){
-                console.log(data[i].name);
+                //console.log(data[i].name);
                 animalsWhoNeedFood.push(data[i]);
                 localStorage.setItem('needFood', JSON.stringify(animalsWhoNeedFood));
-                console.log(animalsWhoNeedFood);
+                //console.log(animalsWhoNeedFood);
             }
         }
     }

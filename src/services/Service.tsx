@@ -16,7 +16,7 @@ export function Service(){
 
         axios.get<IAnimal[]>("https://animals.azurewebsites.net/api/animals")
         .then((response) => {
-        console.log(response.data);
+        //console.log(response.data);
         
         let animalsFromApi = response.data.map((animal: IAnimal) => {
             return new Animal(animal.id, animal.imageUrl, animal.isFed, animal.lastFed, animal.latinName, animal.longDescription, animal.medicine, animal.name, animal.shortDescription, animal.yearOfBirth);
