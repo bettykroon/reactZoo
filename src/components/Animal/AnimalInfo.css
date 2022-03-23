@@ -20,10 +20,41 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 10px;
 }
 
 button {
     padding: 10px;
     font-size: 1.5rem;
+    background-color: transparent;
+    border: none;
+}
+
+.backLink {
     color: #323423;
+}
+
+.backLink:hover {
+    font-size: 2rem;
+    color: #646c51;
+}
+
+.foodBtn {
+    border: 1px solid #ccc;
+    background-color: #646c51;
+    color: #dda990;
+    text-shadow: 0.5px 0.5px #dbece5;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.foodBtn:hover {
+    border: 1px solid #323423;
+    background-color: #dda990;
+    color: #323423;
+    text-shadow: 0.5px 0.5px #646c51;
+}
+
+.happyOrSad {
+    text-align: right;
 }

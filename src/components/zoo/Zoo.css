@@ -65,6 +65,7 @@ li {
 .hungry {
     overflow: hidden;
     width: 40%;
+    margin: auto;
 }
 
 .hungry li {

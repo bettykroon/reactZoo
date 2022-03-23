@@ -1,5 +1,5 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeftLong, faFaceGrinStars, faFaceSadTear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -10,12 +10,16 @@ export function AnimalInfo(){
     const [isFed, setIsFed] = useState(false);
 
     const goBackIcon = faArrowLeftLong as IconProp;
+    const happyIcon = faFaceGrinStars as IconProp;
+    const sadIcon = faFaceSadTear as IconProp;
 
     let zoo: Animal[] = [];
     let animals = localStorage.getItem('animals') || '[]';
     zoo = JSON.parse(animals);
     
     let { name } = useParams();  
+
+    let html = (<><FontAwesomeIcon icon={happyIcon}/> <span>I'm Happy</span></>);
 
     function fedAnimal(){
         console.log("MAAAAT");
@@ -46,7 +50,7 @@ export function AnimalInfo(){
                 }
 
                 if(hoursBetweenFood > 4){
-                    //DO SOMETHING
+                    html = (<><FontAwesomeIcon icon={sadIcon}/> <span>I'm Hungry</span></>);
                 } 
             }   
         }
@@ -60,12 +64,12 @@ export function AnimalInfo(){
             return (
                 <>
                     <div className="button">
-                        <button><Link to={"/"}><FontAwesomeIcon icon={goBackIcon}/></Link></button>
+                        <button><Link className="backLink" to={"/"}><FontAwesomeIcon icon={goBackIcon}/></Link></button>
                     </div>
         
                     <div className="animals">
                         <div className="animal">
-                            
+                            <div className="happyOrSad">{html}</div>
                             <h2>{zoo[i].name}</h2>
                             <img src={zoo[i].image} alt="" />
                             <p>{zoo[i].longDesc}</p>
@@ -77,7 +81,7 @@ export function AnimalInfo(){
                             <p>Blev matad senast: {zoo[i].lastFed}</p>
                             <br />
 
-                            {!zoo[i].isFed && !isFed && <button onClick={fedAnimal}>Mata mig</button>}
+                            {!zoo[i].isFed && !isFed && <button className="foodBtn" onClick={fedAnimal}>Mata mig</button>}
                         </div>
                     </div>
                 </>
