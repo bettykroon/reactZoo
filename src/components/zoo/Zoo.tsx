@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Animal } from "../../models/Animal";
+import { Service } from "../../services/Service";
 import "./Zoo.css";
 
 export function Zoo(){
@@ -22,12 +23,10 @@ export function Zoo(){
     function weNeedFood(){
         let data = JSON.parse(localStorage.getItem('animals') || '[]');
         for (let i = 0; i < data.length; i++) {
-            //console.log(zoo[i].lastFed);
             let hoursSinceFood = Date.parse(data[i].lastFed);
             let rightNow = (new Date()).valueOf();
             
             let hoursBetweenFood = ((rightNow - hoursSinceFood) / (1000 * 60 * 60));
-            //console.log("result", hoursBetweenFood);
 
             if(hoursBetweenFood > 4){
                 console.log(data[i].name);
@@ -41,14 +40,15 @@ export function Zoo(){
 
     let giveMeFood = animalsWhoNeedFood.map((hungryAnimal) => {
         return <Link className="links" to={`/animal/${hungryAnimal.name}`} key={hungryAnimal.id}>
-                <li><h2>{ hungryAnimal.name }</h2></li>
+                <li><h4>{ hungryAnimal.name }</h4></li>
             </Link>
     })
     
     return (
     <> 
-        <ul>{lis}</ul>
+        {zoo.length === 0 && <Service></Service>}
         <h2>WE NEED FOOD</h2>
-        <ul>{giveMeFood}</ul>
+        <ul className="hungry">{giveMeFood}</ul>
+        <ul>{lis}</ul>
     </>)
 }

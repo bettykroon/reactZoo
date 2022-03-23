@@ -1,3 +1,28 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 60px;
+    background-color: #646c51;
+}
+
+.icons {
+    padding: 20px;
+}
+
+h1 {
+    color: #dda990;
+    text-shadow: 1px 1px #dbece5;
+}
+
+body {
+    background-color: #a0ab81;
+}
+
 img {
     width: 60%;
     height: auto;
@@ -8,6 +33,7 @@ h2 {
     margin-bottom: 20px;
     color: #323423;
     text-shadow: 1px 1px #dda990;
+    text-align: center;
 }
 
 p {
@@ -34,4 +60,24 @@ li {
 
 .links {
     text-decoration: none;
+}
+
+.hungry {
+    overflow: hidden;
+    width: 40%;
+}
+
+.hungry li {
+    margin: 0;
+    padding: 2px;
+    float: left;
+}
+
+.hungry li:hover {
+    background-color: #dda990;
+}
+
+.hungry li h4 {
+    color: #323423;
+    display: block;
 }

@@ -1,5 +1,5 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { faArrowLeftLong, faFaceFrown } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -10,7 +10,6 @@ export function AnimalInfo(){
     const [isFed, setIsFed] = useState(false);
 
     const goBackIcon = faArrowLeftLong as IconProp;
-    const sadIcon = faFaceFrown as IconProp;
 
     let zoo: Animal[] = [];
     let animals = localStorage.getItem('animals') || '[]';
@@ -61,12 +60,12 @@ export function AnimalInfo(){
             return (
                 <>
                     <div className="button">
-                        <button><Link to={"/zoo"}><FontAwesomeIcon icon={goBackIcon}/></Link></button>
+                        <button><Link to={"/"}><FontAwesomeIcon icon={goBackIcon}/></Link></button>
                     </div>
         
                     <div className="animals">
                         <div className="animal">
-                            <FontAwesomeIcon icon={sadIcon} ></FontAwesomeIcon>
+                            
                             <h2>{zoo[i].name}</h2>
                             <img src={zoo[i].image} alt="" />
                             <p>{zoo[i].longDesc}</p>

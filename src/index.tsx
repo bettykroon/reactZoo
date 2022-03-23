@@ -4,7 +4,6 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AnimalInfo } from './components/Animal/AnimalInfo';
-import App from './App';
 import { Header } from './components/Header/Header';
 import { Zoo } from './components/zoo/Zoo';
 
@@ -13,8 +12,7 @@ ReactDOM.render(
     <Header></Header>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<App />}></Route>
-        <Route path='/zoo' element={<Zoo />}></Route>
+        <Route path='/' element={<Zoo />}></Route>
         <Route path='/animal/:name' element={<AnimalInfo />}></Route>
       </Routes>
     </BrowserRouter>

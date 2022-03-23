@@ -7,6 +7,10 @@ import { IAnimal } from "../models/IAnimal";
 export function Service(){
     const [animals, setAnimals] = useState<Animal[]>([]);
 
+    let animalsInLS = JSON.parse(localStorage.getItem('animals') || '[]');
+    console.log("LS", animalsInLS);
+    
+
     useEffect(() => {
         if(animals.length > 0) return;
 
@@ -26,6 +30,6 @@ export function Service(){
 
     return (
     <>
-        <Zoo></Zoo>
+        {animals.length && <Zoo></Zoo>}
     </>)
 }
