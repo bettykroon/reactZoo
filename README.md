@@ -1,3 +1,6 @@
+<h1>Skoluppgift - Zoo</h1>
+se projektet live här: https://aquamarine-gumdrop-80c321.netlify.app/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
